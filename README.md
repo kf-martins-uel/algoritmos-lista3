@@ -286,13 +286,8 @@ Faça um programa que calcule o produto interno de dois vetores u e v de mesmo t
 - Código do programa:
 
 ```python
-v, u = [],[]
 n = int(input())
-# v = [int(i) for i in input().split()]
-# u = [int(i) for i in input().split()]
-# if len(v) > n or len(u) > n:
-#     print(f'Tamanho das listas diferente de {n}')
-#     exit(1)
+v, u = [],[]
 i=0
 while i<n:
     v.append(int(input()))
@@ -371,10 +366,7 @@ não existem tais números
 Escreva um programa que leia uma sequência de n números inteiros positivos maiores que
 1 e os salve em uma lista v.  
 O programa deve então imprimir um quadrado de n linhas por n colunas onde em cada posição (i, j), com i, j ∈ {0, . . . , n − 1}, deste quadrado deverá ser impresso 1 caso os números v[i] e v[j] sejam coprimos, e 0 caso contrário.  
-Os pares de números v[i] e v[j] são coprimos se não há nenhum divisor d > 1 que seja
-comum a ambos. Por exemplo 15 e 8 são coprimos, pois os divisores de 8, que são 2, 4 e 8,
-não são divisores de 15. Abaixo temos um exemplo de execução do programa para n = 6
-e v = [2, 3, 4, 5, 6, 7].  
+Os pares de números v[i] e v[j] são coprimos se não há nenhum divisor d > 1 que seja comum a ambos. Por exemplo 15 e 8 são coprimos, pois os divisores de 8, que são 2, 4 e 8, não são divisores de 15. Abaixo temos um exemplo de execução do programa para n = 6 e v = [2, 3, 4, 5, 6, 7].  
 
 |          | v[0] | v[1] | v[2] | v[3] | v[4] | v[5] |
 |----------|------|------|------|------|------|------|
