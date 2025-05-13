@@ -1,7 +1,9 @@
 # Lista de Exercícios 3 - Algoritmos
 
+- Curso: Ciência de Dados e IA
 - Professor: Anderson
 - Aluno: Kauã Felipe Martins
+- Data: 13/05/2025
 
 ---
 
@@ -300,8 +302,7 @@ while i<n:
     u.append(int(input()))
     i+=1
 
-for i in range(n):
-    print(v[i]*u[i], end=' ')
+print([v[i]*u[i] for i in range(n)])
 ```
 
 - Saída:
@@ -314,7 +315,7 @@ for i in range(n):
 1
 2
 3
-2 4 6 
+[2, 4, 6] 
 ```
 
 ---
@@ -333,13 +334,34 @@ Resultado: não existem tais números
 - Código do programa:
 
 ```python
+lista = [int(i) for i in input().split()]
+c = int(input())
+res = {}
 
+for i in lista:
+    target = c / i
+    if target in lista and target not in res:
+        res[i] = int(target)
+        print(f'{i} e {res[i]}')
+if not res:
+    print('não existem tais números')
 ```
 
-- Saída:
+- Saída 1:
 
 ```plaintext
+2 4 5 10 7
+20
+2 e 10
+4 e 5
+```
 
+- Saída 2:
+
+```plaintext
+4 2 1
+9
+não existem tais números
 ```
 
 ---
@@ -368,13 +390,40 @@ Note no exemplo que v[0] = 2 é coprimo de v[1] = 3, v[3] = 5 e v[5] = 7.
 - Código do programa:
 
 ```python
+v = [int(i) for i in input().split()]
+coprimos: dict[int, list[int]] = {}
 
+for i in v:
+    for j in v:
+        a, b = i, j
+        while b != 0:
+            a, b = b, a%b
+        if a == 1:
+            coprimos[i] = coprimos.get(i, []) + [1]
+        else:
+            coprimos[i] = coprimos.get(i, []) + [0]
+
+print(f'{'':^5}', end=' ')
+for i in range(len(v)):
+    print(f'{f'v[{i}]':^5}', end='  ')
+print()
+for i, values in enumerate(v):
+    print(f'v[{i}]', end='  ')
+    for valor in coprimos[values]:
+        print(f'{valor:^5}', end='  ')
+    print()
 ```
 
 - Saída:
 
 ```plaintext
+4 5 8 15
 
+      v[0]   v[1]   v[2]   v[3]   
+v[0]    0      1      0      1    
+v[1]    1      0      1      0    
+v[2]    0      1      0      1    
+v[3]    1      0      1      0   
 ```
 
 ---
